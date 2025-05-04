@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    padding: 40px 4%;
+    margin-top: -600px;
+    margin-left: -500px;
+}
+
+header>.interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+header a {
+    text-decoration: none !important;
+    list-style-type: none !important;
+    color: #000000;
+    display: inline-block;
+    transition: .2s;
+    font-size: 18px;
+}
+
+header nav.menu-desktop a :hover a {
+    color: #000000;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 40px;
+}

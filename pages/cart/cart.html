@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Shopping cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .remove-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .remove-btn:hover {
+            background: darkred;
+        }
+
+        #finalizePurchase,
+        #calculateShipping {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #finalizePurchase:hover {
+            background: darkgreen;
+        }
+
+        #calculateShipping {
+            background: rgb(0, 0, 0);
+        }
+
+        #calculateShipping:hover {
+            background: darkblue;
+        }
+
+        .input-group {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="interface">
+            <nav class="menu-desktop">
+                <ul>
+                    <a href="/index.html"><img src="../../assets/images/logo.png" alt="logo" id="logo"></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <a href="/index.html" class="back-arrow">&#8592; Back</a>
+
+    <main>
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <ul id="cartItems"></ul>
+            <p id="cartTotal">Total: $ 0.00</p>
+
+            <div class="input-group">
+                <label for="cep">Postal Code (CEP):</label>
+                <input type="text" id="cep" placeholder="Enter your postal code">
+            </div>
+            <div class="input-group">
+                <label for="endereco">Address:</label>
+                <input type="text" id="endereco" placeholder="Street, number, neighborhood">
+            </div>
+            <div class="input-group">
+                <label for="cidade">City:</label>
+                <input type="text" id="cidade" placeholder="Enter your city">
+            </div>
+            <div class="input-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" placeholder="Enter your state">
+            </div>
+            <button id="calculateShipping">Calculate Shipping</button>
+            <br><br>
+            <p id="cargoValue">Shipping: $ 0.00</p>
+
+            <button id="finalizePurchase">Complete Purchase</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const baseFreight = 10; //Base freight value
+            const cartTotalElement = document.getElementById("cartTotal");
+            const cartItemsContainer = document.getElementById("cartItems");
+            const cargoValue = document.getElementById("cargoValue");
+            const calculateShippingBtn = document.getElementById("calculateShipping");
+            const finalizePurchaseBtn = document.getElementById("finalizePurchase");
+
+            function updateCart() {
+                cartItemsContainer.innerHTML = "";
+                let total = 0;
+
+                cart.forEach((product, index) => {
+                    total += product.price;
+                    const itemElement = document.createElement("li");
+                    itemElement.innerHTML = `${product.name} - $ ${product.price.toFixed(2).replace(".", ",")} <button class='remove-btn' data-index='${index}'>Remover</button>`;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+
+                cartTotalElement.textContent = `Total: $ ${total.toFixed(2).replace(".", ",")}`;
+
+                // Storing the total cart value in localStorage
+                localStorage.setItem("cartTotal", total.toFixed(2));
+            }
+
+            cartItemsContainer.addEventListener("click", (event) => {
+                if (event.target.classList.contains("remove-btn")) {
+                    const index = event.target.getAttribute("data-index");
+                    cart.splice(index, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    updateCart();
+                }
+            });
+
+            calculateShippingBtn.addEventListener("click", () => {
+                const cep = document.getElementById("cep").value;
+                if (cep.length === 8) {
+                    let freight = baseFreight + Math.random() * 20; // Freight calculation simulation
+                    cargoValue.textContent = `Freight: $ ${freight.toFixed(2).replace(".", ",")}`;
+                } else {
+                    alert("Please enter a valid 8-digit zip code.");
+                }
+            });
+
+            finalizePurchaseBtn.addEventListener("click", () => {
+                window.location.href = "../finalizepurchase/finalizepurchase.html";
+            });
+
+            updateCart();
+        });
+    </script>
+</body>
+
+</html>

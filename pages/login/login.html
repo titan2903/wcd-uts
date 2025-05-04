@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000, #ffffff);
+            margin: 0;
+            position: relative;
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #000000, #7c7878);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #000000, #8d8888);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #000000, #8b8787);
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="/index.html" class="back-arrow">&#8592; Back</a>
+
+    <main>
+        <div class="card" id="auth-container">
+            <h2 id="form-title">Login</h2>
+            <form id="login-form">
+                <input type="email" id="email" placeholder="E-mail" required autocomplete="off">
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Log In</button>
+                <button type="button" class="btn-secondary" onclick="toggleForm()">Create Account</button>
+            </form>
+            <form id="register-form" style="display: none;">
+                <input type="text" id="name" placeholder="Name" required autocomplete="off">
+                <input type="email" id="register-email" placeholder="E-mail" required autocomplete="off">
+                <input type="password" id="register-password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Create Account</button>
+                <button type="button" class="btn-secondary" onclick="toggleForm()">Log In</button>
+            </form>
+        </div>
+        <div class="card" id="profile-container" style="display: none;">
+            <h2>Profile</h2>
+            <p><strong>Name:</strong> <span id="profile-name"></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <input type="text" id="edit-name" placeholder="New name">
+            <button class="btn-secondary" onclick="updateProfile()">Update Name</button>
+            <input type="email" id="edit-email" placeholder="New email">
+            <button class="btn-secondary" onclick="updateEmail()">Update Email</button>
+            <button class="btn-danger" onclick="logout()">Log Out</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedUser = JSON.parse(localStorage.getItem("user"));
+            if (savedUser) {
+                showProfile(savedUser);
+            }
+        });
+
+        function toggleForm() {
+            const loginForm = document.getElementById("login-form");
+            const registerForm = document.getElementById("register-form");
+            const formTitle = document.getElementById("form-title");
+
+            loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
+            registerForm.style.display = registerForm.style.display === "none" ? "block" : "none";
+            formTitle.innerText = loginForm.style.display === "none" ? "Criar Conta" : "Login";
+        }
+
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            handleLogin();
+        });
+
+        document.getElementById("register-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            handleRegister();
+        });
+
+        function handleLogin() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const savedUser = JSON.parse(localStorage.getItem("user"));
+
+            if (savedUser && savedUser.email === email && savedUser.password === password) {
+                localStorage.setItem("loggedIn", "true");
+                showProfile(savedUser);
+            } else {
+                alert("Incorrect email or password!");
+            }
+        }
+
+        function handleRegister() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+
+            if (!name || !email || !password) {
+                alert("Fill in all fields!");
+                return;
+            }
+
+            const existingUser = JSON.parse(localStorage.getItem("user"));
+            if (existingUser && existingUser.email === email) {
+                alert("Email already registered!");
+                return;
+            }
+
+            const newUser = { name, email, password };
+            localStorage.setItem("user", JSON.stringify(newUser));
+            localStorage.setItem("loggedIn", "true");
+
+            alert("Account created successfully!");
+            showProfile(newUser);
+        }
+
+        function showProfile(user) {
+            document.getElementById("auth-container").style.display = "none";
+            document.getElementById("profile-container").style.display = "block";
+            document.getElementById("profile-name").innerText = user.name;
+            document.getElementById("profile-email").innerText = user.email;
+        }
+
+        function updateProfile() {
+            const newName = document.getElementById("edit-name").value;
+            let user = JSON.parse(localStorage.getItem("user"));
+
+            if (newName.trim() !== "") {
+                user.name = newName;
+                localStorage.setItem("user", JSON.stringify(user));
+                document.getElementById("profile-name").innerText = newName;
+                alert("Name updated successfully!");
+            } else {
+                alert("Enter a valid name!");
+            }
+        }
+
+        function updateEmail() {
+            const newEmail = document.getElementById("edit-email").value;
+            let user = JSON.parse(localStorage.getItem("user"));
+
+            if (newEmail.trim() !== "") {
+                user.email = newEmail;
+                localStorage.setItem("user", JSON.stringify(user));
+                document.getElementById("profile-email").innerText = newEmail;
+                alert("Email updated successfully!");
+            } else {
+                alert("Enter a valid email!");
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            document.getElementById("profile-container").style.display = "none";
+            document.getElementById("auth-container").style.display = "block";
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedIn"); // Remove login status
+            localStorage.removeItem("user"); // Optional: remove user data (if you want them to register again)
+            window.location.href = "/index.html"; // Redirect to the home page
+        }
+        
+    </script>
+</body>
+
+</html>

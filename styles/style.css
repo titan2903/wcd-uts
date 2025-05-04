@@ -1,0 +1,1833 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#logo {
+    max-width: 200px !important;
+    max-height: auto !important;
+}
+
+header {
+    padding: 1px 4%;
+    background: rgb(255, 255, 255);
+}
+
+header>.interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+header a {
+    text-decoration: none !important;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    transition: .2s;
+    font-size: 18px;
+}
+
+header nav.menu-desktop ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header nav.menu-desktop a:hover {
+    color: #000000;
+    transform: scale(1.05);
+}
+
+.icon-cart,
+.conta {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.icon-cart:hover,
+.conta:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(3, 3, 3);
+}
+
+.menu-mobile {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+}
+
+.close-menu {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.menu-mobile ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-mobile ul li {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.menu-mobile ul li a {
+    color: rgb(8, 8, 8);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-mobile.active {
+    top: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-desktop {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+.carousel-inner {
+    position: relative;
+    height: 810px;
+}
+
+#logo_marcas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: white;
+}
+
+.imgsMarcas {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.imgsMarcas img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.products {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 100%;
+    padding: 10px;
+}
+
+.product-container.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.product-container::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    display: inline-block;
+}
+
+.price {
+    font-size: 20px;
+    color: #ffffff;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container .card {
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+    display: inline-block;
+}
+
+.container .card:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #056F53;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card1:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #e7249c;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card2:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #056F53;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card3:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #33243F;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card4:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #613057;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card5:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #17392B;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card6:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #494D56;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card7:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #7C6EA8;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+
+.container .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.container .card1_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #37836E;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card2_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #50543C;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card3_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00DBD0;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card4_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FF6525;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card5_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #9EC87D;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card6_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FC7F66;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card7_puma:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FEBD69;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card1_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333237;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card2_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #91663B;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card3_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #3B4551;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card4_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #A02930;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card5_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #4D7D53;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card6_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #CD8171;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card7_adidas:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #602E3A;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card1_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #101012;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card2_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #71D278;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card3_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #666664;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card4_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #7B64B5;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card5_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #27262B;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card6_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #1AA268;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card7_jordan:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #16253C;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card1_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #020202;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card2_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #014660;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card3_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #E5DCD3;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card4_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #4181AA;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card5_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #CE6219;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card6_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #9C328E;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card7_vans:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #185953;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card1_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #919296;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card2_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #828470;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card3_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #384C6D;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card4_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #867956;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card5_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #060A0D;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card6_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #363823;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card7_nb:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #77050C;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card::after {
+    content: 'Nike';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card1::before,
+.card1::after {
+    color: #e7249c;
+}
+
+.card2::before,
+.card2::after {
+    color: #056F53;
+}
+
+.card3::before,
+.card3::after {
+    color: #3c026e;
+}
+
+.card4::before,
+.card4::after {
+    color: #be0499;
+}
+
+.card5::before,
+.card5::after {
+    color: #1b4b37;
+}
+
+.card6::before,
+.card6::after {
+    color: #494D56;
+}
+
+.card7::before,
+.card7::after {
+    color: #9932cc;
+}
+
+.nike-card::after {
+    content: 'Nike';
+}
+
+/* Puma*/
+.container .card1_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card1_puma::before,
+.card1_puma::after {
+    color: #056F53;
+}
+
+.container .card2_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card2_puma::before,
+.card2_puma::after {
+    color: #5e6142;
+}
+
+.container .card3_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card3_puma::before,
+.card3_puma::after {
+    color: #7dded7;
+}
+
+.container .card4_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card4_puma::before,
+.card4_puma::after {
+    color: #ff6a00;
+}
+
+.container .card5_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card5_puma::before,
+.card5_puma::after {
+    color: #9dc782;
+}
+
+.container .card6_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card6_puma::before,
+.card6_puma::after {
+    color: #f59e84;
+}
+
+.container .card7_puma::after {
+    content: 'Puma';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card7_puma::before,
+.card7_puma::after {
+    color: #fa9600;
+}
+
+/* brand adidas */
+.container .card1_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card1_adidas::before,
+.card1_adidas::after {
+    color: #ffffff;
+}
+
+.container .card2_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card2_adidas::before,
+.card2_adidas::after {
+    color: #8a5d33;
+}
+
+.container .card3_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card3_adidas::before,
+.card3_adidas::after {
+    color: #475570;
+}
+
+.container .card4_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card4_adidas::before,
+.card4_adidas::after {
+    color: #a02930;
+}
+
+.container .card5_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card5_adidas::before,
+.card5_adidas::after {
+    color: #68996a;
+}
+
+.container .card6_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card6_adidas::before,
+.card6_adidas::after {
+    color: #d78a7a;
+}
+
+.container .card7_adidas::after {
+    content: 'Adidas';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card7_adidas::before,
+.card7_adidas::after {
+    color: #633341;
+}
+
+/* brand jordan */
+.container .card1_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card1_jordan::before,
+.card1_jordan::after {
+    color: #8ca3b3;
+}
+
+.container .card2_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card2_jordan::before,
+.card2_jordan::after {
+    color: #8d9391;
+}
+
+.container .card3_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card3_jordan::before,
+.card3_jordan::after {
+    color: #4d4d4d;
+}
+
+.container .card4_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card4_jordan::before,
+.card4_jordan::after {
+    color: #a189d8;
+}
+
+.container .card5_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card5_jordan::before,
+.card5_jordan::after {
+    color: #ffffff;
+}
+
+.container .card6_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card6_jordan::before,
+.card6_jordan::after {
+    color: #056F53;
+}
+
+.container .card7_jordan::after {
+    content: 'Jordan';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card7_jordan::before,
+.card7_jordan::after {
+    color: #04167b;
+}
+
+/* brand vans */
+.container .card1_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card1_vans::before,
+.card1_vans::after {
+    color: #ffffff;
+}
+
+.container .card2_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card2_vans::before,
+.card2_vans::after {
+    color: #075979;
+}
+
+.container .card3_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card3_vans::before,
+.card3_vans::after {
+    color: #d1c8b7;
+}
+
+.container .card4_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card4_vans::before,
+.card4_vans::after {
+    color: #4895c1;
+}
+
+.container .card5_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card5_vans::before,
+.card5_vans::after {
+    color: #cf5418;
+}
+
+.container .card6_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card6_vans::before,
+.card6_vans::after {
+    color: #973487;
+}
+
+.container .card7_vans::after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: 4.1%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card7_vans::before,
+.card7_vans::after {
+    color: #1e5a55;
+}
+
+/* brand nb */
+.container .card1_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card1_nb::before,
+.card1_nb::after {
+    color: rgb(255, 255, 255);
+}
+
+.container .card2_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card2_nb::before,
+.card2_nb::after {
+    color: #6a7062;
+}
+
+.container .card3_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card3_nb::before,
+.card3_nb::after {
+    color: #26509e;
+}
+
+.container .card4_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card4_nb::before,
+.card4_nb::after {
+    color: #f1dd99;
+}
+
+.container .card5_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card5_nb::before,
+.card5_nb::after {
+    color: #eef3f2;
+}
+
+.container .card6_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card6_nb::before,
+.card6_nb::after {
+    color: #3f5838;
+}
+
+.container .card7_nb::after {
+    content: 'New';
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0.15;
+}
+
+.card7_nb::before,
+.card7_nb::after {
+    color: #a60707;
+}
+
+.container .card .imgBx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+}
+
+.container .card:hover .imgBx {
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    width: 270px;
+}
+
+.container .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+.container .card:hover .contentBx {
+    height: 210px;
+}
+
+.container .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0;
+}
+
+.container .card .contentBx .size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.container .card:hover .contentBx .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.container .card .contentBx .size h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .contentBx .size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container .card .contentBx a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+.container .card:hover .contentBx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    z-index: 100;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.buttonProducts a {
+    margin-top: 20%;
+}
+
+#tituloProduto {
+    margin-left: 10vh;
+    text-decoration: underline;
+    font-size: 24px;
+    color: #232323;
+}
+
+h3 {
+    color: white;
+}
+
+span {
+    color: white;
+}
+
+
+/* footer */
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer-section {
+    margin-top: 10vh !important;
+    background: #f8f9fa;
+    position: relative;
+    color: #333;
+}
+
+.footer-cta {
+    border-bottom: 1px solid #ddd;
+}
+
+.single-cta i {
+    color: #ff5e14;
+    font-size: 30px;
+    float: left;
+    margin-top: 8px;
+}
+
+.cta-text {
+    padding-left: 15px;
+    display: inline-block;
+}
+
+.cta-text h4 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.cta-text span {
+    color: #6b6666;
+    font-size: 15px;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-pattern img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 330px;
+    background-size: cover;
+    background-position: 100% 100%;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-logo img {
+    max-width: 200px;
+}
+
+.footer-text p {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #555;
+    line-height: 28px;
+}
+
+.footer-social-icon span {
+    color: #333;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.footer-social-icon a {
+    color: #333;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.footer-social-icon i {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+}
+
+.facebook-bg {
+    background: #3B5998;
+}
+
+.twitter-bg {
+    background: #55ACEE;
+}
+
+.google-bg {
+    background: #DD4B39;
+}
+
+.footer-widget-heading h3 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.footer-widget-heading h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    width: 50px;
+    background: #ff5e14;
+}
+
+.footer-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-widget ul li {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-widget ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-widget ul li a:hover {
+    color: #ff5e14;
+}
+
+.subscribe-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 14px 28px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+
+.subscribe-form button i {
+    color: #fff;
+    font-size: 22px;
+    transform: rotate(-6deg);
+}
+
+.copyright-area {
+    background: rgb(240, 235, 235);
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin-top: 1vh;
+    padding: 25px 0;
+}
+
+.copyright-text p {
+    margin: 0;
+    margin-left: 2%;
+    font-size: 14px;
+    color: rgb(33, 30, 30);
+    font-weight: 500;
+}
+
+.footer-menu li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.footer-menu li:hover a {
+    color: #ff5e14;
+}
+
+.footer-menu li a {
+    font-size: 14px;
+    color: #666;
+}
+
+.contact-btn {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contact-btn a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: 0.3s ease-in-out;
+}
+
+.contact-btn a i {
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+.contact-btn a:hover {
+    background-color: #1ebe5d;
+}
+
+.about {
+    background-color: #0f0f0f;
+    color: #fff;
+    padding: 50px 5%;
+    border-radius: 20px;
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mapa {
+    border-radius: 2vh
+}
+
+.descricao {
+    max-width: 50%;
+}
+
+.descricao h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.descricao p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.footer-section {
+    display: flex;
+}
+
+/* Responsive */
+@media (max-width: 1269px) {
+    .imgsMarcas img {
+        width: 15%;
+        margin-top: 15%;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 600px;
+    }
+
+    #logo_marcas {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1187px) {
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 550px;
+    }
+
+}
+
+@media (max-width: 980px) {
+    .imgsMarcas img {
+        margin-top: 1%;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 580px;
+    }
+
+    .product-container {
+        width: 1400px;
+    }
+}
+
+@media (max-width: 813px) {
+    .imgsMarcas img {
+        margin-top: 1%;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 500px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 430px;
+    }
+
+    .descricao {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 617px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 300px;
+    }
+
+    .descricao {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 506px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+        height: 250px;
+    }
+
+    .descricao {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .imgsMarcas img {
+        width: 14%;
+        margin-top: 5%;
+    }
+}
+
+.about-container-maps {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Memusatkan konten secara horizontal */
+    align-items: flex-start;
+    padding: 20px;
+    text-align: left;
+    /* Agar paragraf teks tetap rata kiri */
+}
+
+.container .card .contentBx .product-desc {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 100%;
+    padding: 0 10px;
+    margin: 5px 0;
+    word-wrap: break-word;
+    transform: translateY(10px);
+    /* animasi muncul dari bawah */
+}
+
+.container .card:hover .contentBx .product-desc {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}

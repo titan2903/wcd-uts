@@ -1,0 +1,38 @@
+<header>
+    <div class="interface">
+        <a href="index.html"><img src="/assets/images/logo.png" alt="logo" id="logo"></a>
+
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="bi bi-list"></i>
+        </div>
+
+        <nav class="menu-desktop">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/outlet/outlet.html">Outlet</a></li>
+                <li><a href="/pages/sports/sports.html">Sport</a></li>
+                <li id="about-link"><a href="/index.html#about">About</a></li>
+            </ul>
+        </nav>
+
+        <div class="icon-cart">
+            <i class="bi bi-cart3" onclick="window.location.href='/pages/cart/cart.html'"></i>
+        </div>
+
+        <div class="conta">
+            <i class="bi bi-person-circle" onclick="window.location.href='/pages/login/login.html'"></i>
+        </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav class="menu-mobile">
+        <div class="close-menu" onclick="toggleMenu()">&times;</div>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pages/outlet/outlet.html">Outlet</a></li>
+            <li><a href="/pages/sports/sports.html">Sport</a></li>
+            <li id="about-link-mobile"><a href="#about">About</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,769 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#logo {
+  max-width: 200px !important;
+  max-height: auto !important;
+}
+
+header {
+  padding: 1px 4%;
+  background: rgb(255, 255, 255);
+  /* Black background for better contrast */
+}
+
+header>.interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+header a {
+  text-decoration: none !important;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  transition: .2s;
+  font-size: 18px;
+}
+
+header nav.menu-desktop ul {
+  list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+header nav.menu-desktop a:hover {
+  color: #2414ff;
+  transform: scale(1.05);
+}
+
+/* Cart and account icons */
+.icon-cart,
+.conta {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .3s linear;
+}
+
+.icon-cart:hover,
+.conta:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Hamburger Menu Icon */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(3, 3, 3);
+}
+
+/* Mobile Menu (initially hidden) */
+.menu-mobile {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  padding: 20px;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out;
+}
+
+.close-menu {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.menu-mobile ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-mobile ul li {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.menu-mobile ul li a {
+  color: rgb(8, 8, 8);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu-mobile.active {
+  top: 0;
+  /* Scroll down to the screen */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.carousel-inner {
+  position: relative;
+  height: 900px;
+}
+
+/* Outlet title styling */
+.tituloOutlet {
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.outlet-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 columns */
+  gap: 20px;
+  /* Space between cards */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Center on screen */
+}
+
+/* General Card Configuration */
+.container .card {
+  width: 280px;
+  height: 400px;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Card background effect */
+.container .card:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fffcfe;
+  /* Pink color (changes depending on the brand) */
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+/* Brand text at the bottom of the card */
+.container .card::after {
+  content: 'Nike';
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 10em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+/* Product image */
+.container .card .imgBx {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.container .card .imgBx img {
+  width: 220px;
+}
+
+/* Hover effect on image */
+.container .card:hover .imgBx {
+  top: 20%;
+}
+
+.container .card .contentBx {
+  width: 100%;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 1000;
+}
+
+.container .card:hover .contentBx {
+  height: 250px;
+}
+
+.container .card .contentBx h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.container .card .contentBx .size {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.container .card:hover .contentBx .size {
+  opacity: 2.0;
+}
+
+.container .card .contentBx .size h3 {
+  font-size: 14px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.container .card .contentBx .size span {
+  width: 26px;
+  height: 26px;
+  background: #fff;
+  color: #111;
+  text-align: center;
+  line-height: 26px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.container .card .contentBx .size span:hover {
+  background: #030303;
+  color: #fff;
+}
+
+.container .card .contentBx .price {
+  font-size: 18px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.container .card .contentBx a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.container .card:hover .contentBx a {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.container .card1_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #E6DDC1;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card2_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #00D638;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card3_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #8C328C;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card4_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #D5173D;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card5_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #008DCB;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card6_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #BC8D4A;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card7_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1A1C2A;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card8_outlet:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #B41039;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card1_outlet::after {
+  content: 'Nike';
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  font-size: 8em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #fde6a0;
+}
+
+.container .card2_outlet::after {
+  content: 'Nike';
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  font-size: 8em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #31df05;
+}
+
+.container .card3_outlet::after {
+  content: 'New';
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  font-size: 8em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #86046a;
+}
+
+.container .card4_outlet::after {
+  content: 'Nike';
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  font-size: 8em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #f80808;
+}
+
+.container .card5_outlet::after {
+  content: 'Puma';
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  font-size: 6em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #0ab5f8;
+  margin-top: 17%;
+}
+
+.container .card6_outlet::after {
+  content: 'Adidas';
+  position: absolute;
+  top: 30%;
+  left: -4%;
+  font-size: 5em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #f5d063;
+  margin-top: 20%;
+}
+
+.container .card7_outlet::after {
+  content: 'LV';
+  position: absolute;
+  top: 22%;
+  left: -4%;
+  font-size: 10em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #111231;
+}
+
+.container .card8_outlet::after {
+  content: 'Mizuno';
+  position: absolute;
+  top: 30%;
+  left: -4%;
+  font-size: 5em;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.40;
+  color: #f1003c;
+  margin-top: 20%;
+}
+
+/* footer */
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.footer-section {
+  margin-top: 10vh !important;
+  background: #f8f9fa;
+  position: relative;
+  color: #333;
+}
+
+.footer-cta {
+  border-bottom: 1px solid #ddd;
+}
+
+.single-cta i {
+  color: #ff5e14;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+
+.cta-text h4 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.cta-text span {
+  color: #555;
+  font-size: 15px;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+
+.footer-logo {
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  max-width: 200px;
+}
+
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #555;
+  line-height: 28px;
+}
+
+.footer-social-icon span {
+  color: #333;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+
+.footer-social-icon a {
+  color: #333;
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+
+.facebook-bg {
+  background: #3B5998;
+}
+
+.twitter-bg {
+  background: #55ACEE;
+}
+
+.google-bg {
+  background: #DD4B39;
+}
+
+.footer-widget-heading h3 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+
+.footer-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-widget ul li {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-widget ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-widget ul li a:hover {
+  color: #ff5e14;
+}
+
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.subscribe-form button {
+  position: absolute;
+  right: 0;
+  background: #ff5e14;
+  padding: 13px 20px;
+  border: 1px solid #ff5e14;
+  top: 0;
+}
+
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+
+.copyright-area {
+  background: rgb(163, 162, 162);
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: 1vh;
+  padding: 25px 0;
+}
+
+.copyright-text p {
+  margin: 0;
+  margin-left: 2%;
+  font-size: 14px;
+  color: rgb(33, 30, 30);
+  font-weight: 500;
+
+}
+
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.footer-menu li:hover a {
+  color: #ff5e14;
+}
+
+.footer-menu li a {
+  font-size: 14px;
+  color: #666;
+}
+
+.contact-btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.contact-btn a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.contact-btn a i {
+  margin-right: 8px;
+  font-size: 22px;
+}
+
+.contact-btn a:hover {
+  background-color: #1ebe5d;
+}
+
+@media (max-width: 1304px) {
+  .outlet {
+    margin-top: -3%;
+  }
+
+  .carousel-inner {
+    height: 50%;
+  }
+}
+
+@media (max-width: 1287px) {
+  .carousel-inner {
+    height: 50%;
+  }
+
+  .outlet-container {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
+
+  @media (max-width: 958px) {
+    .outlet-container {
+      grid-template-columns: repeat(2, 1fr);
+      margin-left: 07%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width:678px) {
+  .outlet-container {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 2%;
+    text-align: center;
+  }
+}
+
+.container .card .contentBx .product-desc {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 100%;
+  padding: 0 10px;
+  margin: 5px 0;
+  word-wrap: break-word;
+  transform: translateY(10px);
+  /* animasi muncul dari bawah */
+}
+
+.container .card:hover .contentBx .product-desc {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
