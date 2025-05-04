@@ -128,7 +128,7 @@ header nav.menu-desktop a:hover {
     height: 810px;
 }
 
-#logo_marcas {
+#logo_brands {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,7 +136,7 @@ header nav.menu-desktop a:hover {
     background: white;
 }
 
-.imgsMarcas {
+.imgsBrand {
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -145,7 +145,7 @@ header nav.menu-desktop a:hover {
     padding: 10px 0;
 }
 
-.imgsMarcas img {
+.imgsBrand img {
     width: 200px;
     height: auto;
     border-radius: 10px;
@@ -1415,9 +1415,7 @@ span {
     color: white;
 }
 
-
 /* footer */
-
 ul {
     margin: 0px;
     padding: 0px;
@@ -1664,21 +1662,21 @@ ul {
     align-items: center;
 }
 
-.mapa {
+.map {
     border-radius: 2vh
 }
 
-.descricao {
+.description {
     max-width: 50%;
 }
 
-.descricao h2 {
+.description h2 {
     font-size: 26px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.descricao p {
+.description p {
     font-size: 16px;
     margin-bottom: 15px;
     line-height: 1.6;
@@ -1690,7 +1688,7 @@ ul {
 
 /* Responsive */
 @media (max-width: 1269px) {
-    .imgsMarcas img {
+    .imgsBrand img {
         width: 15%;
         margin-top: 15%;
     }
@@ -1700,7 +1698,7 @@ ul {
         height: 600px;
     }
 
-    #logo_marcas {
+    #logo_brands {
         margin-top: 10px;
     }
 }
@@ -1714,7 +1712,7 @@ ul {
 }
 
 @media (max-width: 980px) {
-    .imgsMarcas img {
+    .imgsBrand img {
         margin-top: 1%;
     }
 
@@ -1729,7 +1727,7 @@ ul {
 }
 
 @media (max-width: 813px) {
-    .imgsMarcas img {
+    .imgsBrand img {
         margin-top: 1%;
     }
 
@@ -1751,7 +1749,7 @@ ul {
         height: 430px;
     }
 
-    .descricao {
+    .description {
         max-width: 100%;
         margin-top: 20px;
     }
@@ -1768,7 +1766,7 @@ ul {
         height: 300px;
     }
 
-    .descricao {
+    .description {
         max-width: 100%;
         margin-top: 20px;
     }
@@ -1785,12 +1783,12 @@ ul {
         height: 250px;
     }
 
-    .descricao {
+    .description {
         max-width: 100%;
         margin-top: 20px;
     }
 
-    .imgsMarcas img {
+    .imgsBrand img {
         width: 14%;
         margin-top: 5%;
     }

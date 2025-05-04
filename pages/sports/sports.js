@@ -26,10 +26,28 @@ function addToCart(name, price, image) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartDisplay(); // Atualiza o carrinho na interface
-    showCartMessage("O tênis foi adicionado ao carrinho!"); // Exibe a mensagem
+    updateCartDisplay(); // Updates the cart in the interface
+    showCartMessage("The sneakers have been added to the cart!"); // Displays the message
 }
 
 function toggleMenu() {
     document.querySelector('.menu-mobile').classList.toggle('active');
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".buttonProducts");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const productCard = button.closest(".card");
+            const productName = productCard.querySelector("h2").innerText;
+            const productPrice = parseFloat(productCard.querySelector(".price").innerText.replace('$', '').replace(',', '.'));
+            const productImage = productCard.querySelector("img").src;
+
+            alert('Item success added to cart!');
+            addToCart(productName, productPrice, productImage);
+        });
+    });
+});

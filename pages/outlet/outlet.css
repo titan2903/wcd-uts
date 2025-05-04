@@ -758,7 +758,6 @@ ul {
   margin: 5px 0;
   word-wrap: break-word;
   transform: translateY(10px);
-  /* animasi muncul dari bawah */
 }
 
 .container .card:hover .contentBx .product-desc {

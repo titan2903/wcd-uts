@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const shoeImage = document.getElementById("shoeImage");
+    const shoesImage = document.getElementById("shoesImage");
     const colorOptions = document.querySelectorAll(".color-option");
 
     const shoeColors = {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     colorOptions.forEach(option => {
         option.addEventListener("click", function () {
             const selectedColor = this.getAttribute("data-color");
-            shoeImage.src = shoeColors[selectedColor] || shoeColors.green;
+            shoesImage.src = shoeColors[selectedColor] || shoeColors.green;
         });
     });
 });
@@ -78,16 +78,16 @@ function addToCart(name, price, image) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartDisplay(); // Atualiza o carrinho na interface
-    showCartMessage("O tênis foi adicionado ao carrinho!"); // Exibe a mensagem
+    updateCartDisplay();
+    showCartMessage("The sneakers have been added to the cart!");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const brandLogos = document.querySelectorAll(".imgsMarcas img");
+    const brandLogos = document.querySelectorAll(".imgsBrand img");
     const allSections = document.querySelectorAll(".products");
-    const sectionsMap = {}; // Mapeamento para acesso rápido
+    const sectionsMap = {}; // Mapping for quick access
 
-    // Criando um mapeamento de seções para evitar percorrer toda a lista sempre
+    // Creating a section mapping to avoid going through the entire list every time
     allSections.forEach(section => {
         const sectionTitle = section.querySelector("h2").textContent.toLowerCase().trim();
         sectionsMap[sectionTitle] = section;
@@ -97,9 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
         logo.addEventListener("click", function () {
             const selectedBrand = this.alt.toLowerCase().trim();
 
-            console.log("Marca selecionada:", selectedBrand); // Debug para ver o nome da marca
+            console.log("Selected brand:", selectedBrand); // Debug to see brand name
 
-            // Corrigir nomes que podem estar diferentes no HTML
+            // Fix names that may be different in HTML
             const brandMapping = {
                 "nike": "nike",
                 "puma": "puma",
@@ -108,38 +108,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 "vans": "vans",
                 "newbalance": "new balance", 
                 "new balance": "new balance",
-                "nb": "new balance" // Adicionado para corrigir a seleção errada
+                "nb": "new balance" // Added to fix wrong selection
             };
 
             const normalizedBrand = brandMapping[selectedBrand] || selectedBrand;
 
-            console.log("Marca normalizada:", normalizedBrand); // Debug
+            console.log("Standardized brand:", normalizedBrand); // Debug
 
-            // Oculta todas as seções
+            // Hides all sections
             allSections.forEach(section => section.style.display = "none");
 
-            // Exibe apenas a seção correspondente
+            // Display only the corresponding section
             if (sectionsMap[normalizedBrand]) {
                 const selectedSection = sectionsMap[normalizedBrand];
                 selectedSection.style.display = "flex";
                 selectedSection.style.flexDirection = "column";
 
-                // Transforma em grid
+                // Transform into grid
                 const productContainer = selectedSection.querySelector(".product-container");
                 productContainer.style.display = "grid";
                 productContainer.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
                 productContainer.style.gap = "20px";
                 productContainer.style.overflow = "visible";
 
-                // Esconde os botões do carrossel
+                // Hides the carousel buttons
                 selectedSection.querySelectorAll(".prev, .next").forEach(button => button.style.display = "none");
             } else {
-                console.warn(`Nenhuma seção encontrada para a marca: ${selectedBrand}`);
+                console.warn(`No sections found for brand: ${selectedBrand}`);
             }
         });
     });
 
-    // Resetando exibição inicial como carrossel ao recarregar
+    // Resetting initial display as carousel on reload
     function resetDisplay() {
         allSections.forEach(section => {
             section.style.display = "flex";
