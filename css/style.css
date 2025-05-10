@@ -1647,21 +1647,6 @@ ul {
     background-color: #1ebe5d;
 }
 
-.about {
-    background-color: #0f0f0f;
-    color: #fff;
-    padding: 50px 5%;
-    border-radius: 20px;
-    margin: 50px auto;
-    max-width: 1200px;
-}
-
-.about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .map {
     border-radius: 2vh
 }
@@ -1792,6 +1777,21 @@ ul {
         width: 14%;
         margin-top: 5%;
     }
+}
+
+.about {
+    background-color: #0f0f0f;
+    color: #fff;
+    padding: 50px 5%;
+    border-radius: 20px;
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .about-container-maps {
