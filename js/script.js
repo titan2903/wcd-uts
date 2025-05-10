@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const nextButton = carousel.querySelector(".next");
 
         const scrollAmount = 350;
-        const scrollSpeed = 15; 
-        const scrollStep = 20; 
+        const scrollSpeed = 15;
+        const scrollStep = 20;
 
         function smoothScroll(container, direction) {
             let step = 0;
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "adidas": "adidas",
                 "jordan": "jordan",
                 "vans": "vans",
-                "newbalance": "new balance", 
+                "newbalance": "new balance",
                 "new balance": "new balance",
                 "nb": "new balance" // Added to fix wrong selection
             };
@@ -190,3 +190,17 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleButton.addEventListener('click', toggleMenu);
     }
 });
+
+fetch('./components/footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading footer:', error));
+
+fetch('./components/header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading header:', error));
