@@ -40,3 +40,18 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #000000, #7c7878);
+}
