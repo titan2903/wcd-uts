@@ -12,7 +12,7 @@ function toggleForm() {
 
     loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
     registerForm.style.display = registerForm.style.display === "none" ? "block" : "none";
-    formTitle.innerText = loginForm.style.display === "none" ? "Criar Conta" : "Login";
+    formTitle.innerText = loginForm.style.display === "none" ? "Register" : "Login";
 }
 
 document.getElementById("login-form").addEventListener("submit", function (event) {
